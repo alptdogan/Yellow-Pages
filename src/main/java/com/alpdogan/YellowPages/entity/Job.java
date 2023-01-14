@@ -1,4 +1,4 @@
-package comalpdogan.YellowPages.entity;
+package com.alpdogan.YellowPages.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -17,6 +17,7 @@ public class Job {
     @Column(name = "title", length = 75)
     private String title;
 
+    /*
     @ManyToOne
     @JoinColumn
     private Firm firm;
@@ -24,6 +25,8 @@ public class Job {
     @ManyToOne
     @JoinColumn
     private Category category;
+
+     */
 
     /*
     @Column(name = "description", length = 1000)

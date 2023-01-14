@@ -1,6 +1,6 @@
-package comalpdogan.YellowPages.repository;
+package com.alpdogan.YellowPages.repository;
 
-import comalpdogan.YellowPages.entity.Category;
+import com.alpdogan.YellowPages.entity.Category;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,9 +1,9 @@
-package comalpdogan.YellowPages.dto.responseDto;
+package com.alpdogan.YellowPages.dto.requestDto;
 
 import lombok.Data;
 
 @Data
-public class JobResponseDto {
+public class SaveJobRequestDto {
 
     private String title;
     private int firmId;

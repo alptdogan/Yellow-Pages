@@ -1,4 +1,4 @@
-package comalpdogan.YellowPages.dto.responseDto;
+package com.alpdogan.YellowPages.dto.responseDto;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package comalpdogan.YellowPages.entity;
+package com.alpdogan.YellowPages.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -18,7 +18,10 @@ public class Category {
     @Column(name = "category_name")
     private String categoryName;
 
+    /*
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Job> job = new ArrayList<>();
+
+     */
 
 }
