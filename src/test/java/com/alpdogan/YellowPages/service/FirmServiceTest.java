@@ -1,5 +1,6 @@
 package com.alpdogan.YellowPages.service;
 
+import com.alpdogan.YellowPages.dto.requestDto.UpdateFirmRequestDto;
 import com.alpdogan.YellowPages.entity.Firm;
 import com.alpdogan.YellowPages.dto.requestDto.SaveFirmRequestDto;
 import com.alpdogan.YellowPages.repository.FirmRepository;
@@ -59,6 +60,24 @@ public class FirmServiceTest {
 
         assertEquals(saveFirmMessage, saveFirm);
 
+    }
+
+    @Test
+    void testUpdateFirm()
+    {
+        Firm firmMock = mock(Firm.class);
+        firmMock.setId(1);
+        firmMock.setFirmName("testName");
+
+        UpdateFirmRequestDto updateFirmRequestDtoMock = mock(UpdateFirmRequestDto.class);
+        updateFirmRequestDtoMock.setFirmName("updateTestName");
+
+        when(firmRepository.findById(firmMock.getId())).thenReturn(Optional.of(firmMock));
+
+        String updateFirm = firmService.updateFirm(updateFirmRequestDtoMock);
+        String updateFirmMessage = "Changes saved successfully.";
+
+        assertEquals(updateFirmMessage, updateFirm);
     }
 
 }
