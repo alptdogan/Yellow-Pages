@@ -1,6 +1,7 @@
 package com.alpdogan.YellowPages.service;
 
 import com.alpdogan.YellowPages.dto.requestDto.UpdateFirmRequestDto;
+import com.alpdogan.YellowPages.dto.responseDto.FirmResponseDto;
 import com.alpdogan.YellowPages.entity.Firm;
 import com.alpdogan.YellowPages.dto.requestDto.SaveFirmRequestDto;
 import com.alpdogan.YellowPages.repository.FirmRepository;
@@ -12,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -63,8 +66,8 @@ public class FirmServiceTest {
     }
 
     @Test
-    void testUpdateFirm()
-    {
+    void testUpdateFirm() {
+
         Firm firmMock = mock(Firm.class);
         firmMock.setId(1);
         firmMock.setFirmName("testName");
@@ -78,6 +81,22 @@ public class FirmServiceTest {
         String updateFirmMessage = "Changes saved successfully.";
 
         assertEquals(updateFirmMessage, updateFirm);
+
+    }
+
+    @Test
+    void testDeleteFirmById() {
+
+        Firm firmMock = mock(Firm.class);
+        firmMock.setId(1);
+
+        when(firmRepository.findById(firmMock.getId())).thenReturn(Optional.of(firmMock));
+
+        String deleteFirm = firmService.deleteFirmById(firmMock.getId());
+        String deleteMessage = "The firm has been deleted.";
+
+        assertEquals(deleteMessage, deleteFirm);
+
     }
 
 }
