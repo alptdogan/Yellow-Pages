@@ -28,7 +28,7 @@ public class CategoryService {
 
         category = categoryRepository.save(category);
 
-        return category.getCategoryName() + " has been successfully created.";
+        return category.getCategoryName() + " has been created successfully.";
 
     }
 
