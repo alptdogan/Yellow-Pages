@@ -17,7 +17,6 @@ public class Job {
     @Column(name = "title", length = 75)
     private String title;
 
-    /*
     @ManyToOne
     @JoinColumn
     private Firm firm;
@@ -26,15 +25,10 @@ public class Job {
     @JoinColumn
     private Category category;
 
-     */
-
-    /*
     @Column(name = "description", length = 1000)
     private String description;
 
     @Column(name = "publication_date")
     private LocalDate publicationDate;
-     */
-
 
 }
