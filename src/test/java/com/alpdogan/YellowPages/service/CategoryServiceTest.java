@@ -10,6 +10,8 @@ import org.mockito.Mock;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -43,6 +45,19 @@ public class CategoryServiceTest {
         String saveCategoryMessage = categoryMock.getCategoryName() + " has been created successfully.";
 
         assertEquals(saveCategory, saveCategoryMessage);
+
+    }
+
+    @Test
+    void testFindCategory() {
+
+        Category categoryMock = mock(Category.class);
+        categoryMock.setId(1);
+
+        when(categoryRepository.findById(categoryMock.getId())).thenReturn(Optional.of(categoryMock));
+        Category findCategory = categoryService.findCategory(categoryMock.getId());
+
+        assertEquals(categoryMock, findCategory);
 
     }
 
