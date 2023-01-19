@@ -2,11 +2,11 @@
 
 Technologies used;
 
-Spring Data JPA
-Lombok
-H2 Database
-ModelMapper
-Unit Test (JUnit 5)
+Spring Data JPA,
+Lombok,
+H2 Database,
+ModelMapper,
+Unit Test (JUnit 5),
 Rest API
 
 Some Examples of Rest API Action;
