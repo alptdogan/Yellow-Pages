@@ -12,6 +12,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,6 +38,8 @@ public class JobService {
         String titleRequest = saveJobRequestDto.getTitle();
         int firmIdRequest = saveJobRequestDto.getFirmId();
         int categoryIdRequest = saveJobRequestDto.getCategoryId();
+        String descriptionRequest = saveJobRequestDto.getDescription();
+        LocalDate publicationDateRequest = saveJobRequestDto.getPublicationDate();
 
         Category category = categoryService.findCategory(categoryIdRequest);
         Firm firm = firmRepository.findById(firmIdRequest).get();
@@ -46,6 +49,9 @@ public class JobService {
         job.setTitle(titleRequest);
         job.setFirm(firm);
         job.setCategory(category);
+        job.setDescription(descriptionRequest);
+        job.setPublicationDate(publicationDateRequest);
+
 
         List<Job> jobList = new ArrayList<>();
         jobList.add(job);
