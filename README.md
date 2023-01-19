@@ -1,6 +1,6 @@
 # Yellow-Pages
 
-Technologies used;
+Technologies Used;
 
 Spring Data JPA,
 Lombok,
