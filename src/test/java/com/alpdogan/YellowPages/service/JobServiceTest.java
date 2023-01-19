@@ -1,10 +1,9 @@
 package com.alpdogan.YellowPages.service;
 
-import com.alpdogan.YellowPages.dto.requestDto.SaveCategoryRequestDto;
 import com.alpdogan.YellowPages.dto.requestDto.SaveJobRequestDto;
 import com.alpdogan.YellowPages.dto.requestDto.UpdateJobRequestDto;
-import com.alpdogan.YellowPages.entity.Category;
 import com.alpdogan.YellowPages.entity.Job;
+import com.alpdogan.YellowPages.repository.FirmRepository;
 import com.alpdogan.YellowPages.repository.JobRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -31,6 +30,15 @@ public class JobServiceTest {
     @Mock
     ModelMapper modelMapper;
 
+    @Mock
+    FirmService firmService;
+
+    @Mock
+    CategoryService categoryService;
+
+    @Mock
+    FirmRepository firmRepository;
+
     @Test
     void testSaveJob() {
 
@@ -38,7 +46,7 @@ public class JobServiceTest {
         saveJobRequestDtoMock.setTitle("Software Developer");
 
         Job jobMock = mock(Job.class);
-        jobMock.setId(1);
+        jobMock.setId(0);
 
         when(modelMapper.map(saveJobRequestDtoMock, Job.class)).thenReturn(jobMock);
         when(jobRepository.save(jobMock)).thenReturn(jobMock);
@@ -97,10 +105,10 @@ public class JobServiceTest {
 
         when(jobRepository.findById(jobMock.getId())).thenReturn(Optional.of(jobMock));
 
-        String deleteBook = jobService.deleteJobById(jobMock.getId());
-        String deleteBookMessage = "The book has been deleted.";
+        String deleteJobById = jobService.deleteJobById(jobMock.getId());
+        String deleteJobMessage = "The job has been deleted.";
 
-        assertEquals(deleteBook, deleteBookMessage);
+        assertEquals(deleteJobById, deleteJobMessage);
 
     }
 
