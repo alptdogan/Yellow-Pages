@@ -1,4 +1,4 @@
-package com.alpdogan.YellowPages.Controller;
+package com.alpdogan.YellowPages.controller;
 
 import com.alpdogan.YellowPages.dto.requestDto.SaveFirmRequestDto;
 import com.alpdogan.YellowPages.dto.requestDto.UpdateFirmRequestDto;
